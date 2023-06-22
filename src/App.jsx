@@ -32,7 +32,7 @@ function App() {
     setCurrentPage(pageNumber);
   };
 
-  const sortedData = data.slice(0, 20).sort((a, b) => {
+  const sortedData = data.sort((a, b) => {
     if (sortOrder === 'asc') {
       return a.name.localeCompare(b.name);
     } else {
@@ -50,7 +50,7 @@ function App() {
 
   const indexofLast = currentPage * countriesPerPage
   const indexFirstCountry = indexofLast - countriesPerPage
-   const currentCountries = sortOrder.slice(indexofLast,indexFirstCountry)
+   const currentCountries = sortedData.slice(indexofLast,indexFirstCountry)
    const renderPagination = () =>{
     const pageNumbers = Math.ceil(sortOrder.length / countriesPerPage)
     if(pageNumbers <= 1){
@@ -85,7 +85,7 @@ function App() {
         <TabList>
           <Tab><div>
           <select
-            value={sortOrder}
+            value={sortedData}
             onChange={handleSortChange}
             className="border border-gray-300 rounded-md p-2"
           >
@@ -100,8 +100,9 @@ function App() {
             {currentCountries.map((country, index) => (
               <Country key={index} index={index} country={country} />
             ))}
+          
           </div>
-           {renderPagination()}
+           
         </TabPanel>
         <TabPanel>
           <div>
@@ -121,6 +122,7 @@ function App() {
           </div>
         </TabPanel>
       </Tabs>
+      {renderPagination()}
       </div>
     </>
   );

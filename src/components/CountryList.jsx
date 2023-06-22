@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Country from "./Country";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 const API_URL = "https://restcountries.com/v2/all?fields=name,region,area";
 
@@ -98,6 +100,8 @@ const CountryList = () => {
   };
 
   return (
+    <div>
+      <Navbar></Navbar>
     <div className="container mx-auto p-4">
       <h1 className="text-4xl font-bold mb-4">Country Visualization</h1>
       <div className="flex space-x-2 mb-4">
@@ -140,6 +144,8 @@ const CountryList = () => {
         ))}
       </div>
       {renderPagination()}
+    </div>
+    <Footer></Footer>
     </div>
   );
 };
