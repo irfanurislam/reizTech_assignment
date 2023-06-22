@@ -6,11 +6,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
+import CountryList from './components/CountryList.jsx';
 
 const router = createBrowserRouter([
+
   {
     path: "/",
-    element: <App></App>,
+    element: <CountryList></CountryList>,
   },
 ]);
 
