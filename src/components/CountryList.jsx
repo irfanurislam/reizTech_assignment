@@ -103,7 +103,7 @@ const CountryList = () => {
     <div>
       <Navbar></Navbar>
     <div className="container mx-auto p-4">
-      <h1 className="text-4xl font-bold mb-4">Country Visualization</h1>
+      <h1 className="text-4xl font-bold mb-4 mt-6 text-center">Country Visualization</h1>
       <div className="flex space-x-2 mb-4">
         <label>
           Sort by:
@@ -138,7 +138,7 @@ const CountryList = () => {
           </select>
         </label>
       </div>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2  gap-2">
         {currentCountries.map((country, index) => (
           <Country key={index} index={index} country={country} />
         ))}
